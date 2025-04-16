@@ -1,5 +1,16 @@
+import React from "react";
+import { useState } from React
+
+
 
 function App() {
+
+  const [fullName, setFullname] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [specialization, setSpecialization] = useState("");
+  const [experienceYrs, setExperienceYrs] = useState("");
+  const [fullName, setfullName] = useState("");
 
   return (
     <div>
