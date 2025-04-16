@@ -17,7 +17,7 @@ function App() {
   return (
     <div>
       <h1>Web developer Signup</h1>
-      <form onSubmit={handleSubmit}></form>
+      <form onSubmit={handleSubmit}></form>   {/* Appena viene premuto il Submit nel Form, viene eseguita la funzione(handleSubmit) che generalmente può: Controllare che tutti i campi siano validi, Se tutto è ok, stampare i dati in console, Mandare i dati a un'API e come in questo caso(e.preventDefault(): impedire il comportamento di Default di far ricaricare la pagina. }
     </div>
   );
 }
