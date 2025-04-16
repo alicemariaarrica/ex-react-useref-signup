@@ -10,7 +10,7 @@ function App() {
   const [password, setPassword] = useState("");
   const [specialization, setSpecialization] = useState("");
   const [experienceYrs, setExperienceYrs] = useState("");
-  const [fullName, setfullName] = useState("");
+  const [description, setDescription] = useState("");
 
   return (
     <div>
