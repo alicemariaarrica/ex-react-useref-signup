@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 
-
-
-
-
 function App() {
 
   const [fullName, setFullname] = useState("");
@@ -13,8 +9,31 @@ function App() {
   const [experienceYrs, setExperienceYrs] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleSubmit = e => { e.preventDefault(); }
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (
+      !fullName.trim() ||
+      !username.trim() ||
+      !password.trim() ||
+      !specialization.trim() ||
+      !experienceYrs.trim() ||
+      experienceYrs <= 0 ||
+      !description.trim()
+    ) {
+      alert("Errore! Devi compilare tutti i campi correttamente.");
 
+    }
+    console.log('Submit effettuato:', {
+      fullName,
+      username,
+      password,
+      specialization,
+      experienceYrs,
+      description,
+    });
+  };
+
+  //return del jsx (ciò che verrà visualizzato a schermo)
   return (
     <div>
       <h1>Web developer Signup</h1>
@@ -62,8 +81,10 @@ function App() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
-
         </label>
+
+        <button type="submit">Press to submit</button>
+
       </form>
     </div >
   );

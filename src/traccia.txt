@@ -1,5 +1,5 @@
 📌 Milestone 1: Creare un Form con Campi Controllati
-Crea un form di registrazione con i seguenti campi controllati (gestiti con useState):
+OK! Crea un form di registrazione con i seguenti campi controllati (gestiti con useState):
 
 ✅ Nome completo (input di testo)
 
