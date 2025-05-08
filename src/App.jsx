@@ -1,93 +1,87 @@
-import React, { useState } from "react";
+import { useState, useEffect } from 'react'
 
-function App() {
+export default function App() {
 
-  const [fullName, setFullname] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [specialization, setSpecialization] = useState("");
-  const [experienceYrs, setExperienceYrs] = useState("");
-  const [description, setDescription] = useState("");
+  const [Nome, setNome] = useState("");
+  const [Username, setUsername] = useState("");
+  const [Password, setPassword] = useState("");
+  const [Specializzazione, setSpecializzazione] = useState("");
+  const [Testo, setTesto] = useState("");
 
-  const handleSubmit = e => {
+
+  {/*qua ho scritto il codice del submit*/ }
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      !fullName.trim() ||
-      !username.trim() ||
-      !password.trim() ||
-      !specialization.trim() ||
-      !experienceYrs.trim() ||
-      experienceYrs <= 0 ||
-      !description.trim()
-    ) {
-      alert("Errore! Devi compilare tutti i campi correttamente.");
-
+    // Qui metti le tue validazioni:
+    if (!Nome || !Username || !Password || !Specializzazione || !Descrizione) {
+      alert("Compila tutti i campi!");
+      return;
     }
-    console.log('Submit effettuato:', {
-      fullName,
-      username,
-      password,
-      specialization,
-      experienceYrs,
-      description,
-    });
+    if (AnniEsperienza <= 0) {
+      alert("Inserisci un numero di anni di esperienza positivo");
+      return;
+    }
+    // Se è tutto ok:
+    console.log({ Nome, Username, Password, Specializzazione, AnniEsperienza, Testo });
   };
 
-  //return del jsx (ciò che verrà visualizzato a schermo)
   return (
-    <div>
-      <h1>Web developer Signup</h1>
+
+    <div className="InputForms">
+
+
       <form onSubmit={handleSubmit}>
-        {/* Appena viene premuto il Submit nel Form, viene eseguita la funzione(handleSubmit) che generalmente può: Controllare che tutti i campi siano validi, Se tutto è ok, stampare i dati in console, Mandare i dati a un'API e come in questo caso(e.preventDefault(): impedire il comportamento di Default di far ricaricare la pagina.*/}
-        <label>
-          <p>Fullname</p>
-          <input type="text"
-            value={fullName}
-            onChange={(e) => setFullname(e.target.value)} />
-        </label>
-        <label>
-          <p>Username</p>
-          <input type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <label>
-          <p>Specialization</p>
-          <select
-            value={specialization}
-            onChange={(e) => setSpecialization(e.target.value)}
-          >
-            <option value="">-- Select --</option>
-            <option value="Full Stack">Full Stack</option>
-            <option value="Frontend">Frontend</option>
-            <option value="Backend">Backend</option>
-          </select>
-        </label>
-        <label>
-          <p>Years of experience</p>
-          <input type="number"
-            value={experienceYrs}
-            onChange={(e) => setExperienceYrs(e.target.value)} />
-        </label>
-        <label>
-          <p>Brief description</p>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </label>
 
-        <button type="submit">Press to submit</button>
+        <input
+          type="text"
+          placeholder="Scrivi il tuo nome"
+          value={Nome}
+          onChange={e => setNome(e.target.value)}
+        />
 
+
+        <input
+          type="text"
+          placeholder="Scrivi il tuo username"
+          value={Username}
+          onChange={e => setUsername(e.target.value)}
+        />
+
+
+        <input
+          type="password"
+          placeholder="Scrivi la tua password"
+          value={Password}
+          onChange={e => setPassword(e.target.value)}
+        />
+
+
+        <select
+          value={Specializzazione}
+          onChange={e => setSpecializzazione(e.target.value)}
+        >
+          <option value="">Seleziona la tua specializzazione </option>
+          <option value="Full Stack">Full Stack</option>
+          <option value="Frontend">Frontend</option>
+          <option value="Backend">Backend</option>
+        </select>
+
+
+        <input
+          type="text"
+          placeholder="Scrivi la tua esperienza"
+          value={Testo}
+          onChange={e => setTesto(e.target.value)}
+        />
+
+        <button type="submit">Registrati</button>
       </form>
-    </div >
-  );
-}
 
-export default App;
+
+
+    </div>
+  );
+
+
+}
